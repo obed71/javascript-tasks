@@ -1,0 +1,14 @@
+{
+  "name": "js-tasks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index",
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "obed71@duck.com",
+  "license": "ISC",
+  "description": "Solution for JavaScript Tasks"
+}
