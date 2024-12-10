@@ -17,7 +17,7 @@ export default function (rows, cols) {
   result.push(row);
 
   range(rows, 1).forEach((x) => {
-    const nextRow = row.map((el) => el + rows);
+    const nextRow = row.map((el) => el + cols);
     row = nextRow;
     result.push(nextRow);
   });
