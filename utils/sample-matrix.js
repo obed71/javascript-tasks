@@ -16,11 +16,11 @@ export default function (rows, cols) {
 
   result.push(row);
 
-  for (let x = 1; x < rows; x++) {
+  range(rows, 1).forEach((x) => {
     const nextRow = row.map((el) => el + rows);
     row = nextRow;
     result.push(nextRow);
-  }
+  });
 
   return result;
 }
