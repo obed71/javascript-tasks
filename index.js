@@ -1,17 +1,4 @@
-import rotateMatrix from './rotate-matrix.js';
+import spiralMatrixTraversal from './spiral-matrix-traversal.js';
+import sampleMatrix from './utils/sample-matrix.js';
 
-const clockWiseRotated = rotateMatrix();
-
-const antiClockWiseRotated = rotateMatrix(
-  [
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10],
-    [11, 12, 13, 14, 15],
-    [16, 17, 18, 19, 20],
-    [21, 22, 23, 24, 25],
-  ],
-  false
-);
-
-console.log(clockWiseRotated);
-console.log(antiClockWiseRotated);
+console.log(spiralMatrixTraversal(sampleMatrix()));
