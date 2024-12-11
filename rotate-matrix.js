@@ -1,44 +1,31 @@
-import sampleMatrix from './utils/sample-matrix.js';
+export { rotateLeft, rotateRight };
 
 /**
  *
- * @param {number[][]} matrix - The 2D matrix
- * @param {boolean} clockwise - State true or false. The defaul value is true
- * @returns {number[][]} - Rotated 2D matrix
+ * @param {number[][]} arr - The 2D matrix
+ * @returns {number[][]} - Left rotated 2D matrix
  */
 
-export default function (matrix, clockwise) {
-  matrix ??= sampleMatrix(3, 4);
-  clockwise ??= true;
+function rotateLeft(arr) {
+  return arr[0].length == 1
+    ? [arr.flatMap((el) => el)]
+    : [
+        arr.flatMap((el) => el.slice(-1)),
+        ...rotateLeft(arr.map((el) => el.slice(0, -1))),
+      ];
+}
 
-  const numberOfColumns = matrix[0].length;
-  const lastColumnIndex = numberOfColumns - 1;
-  const lastRowIndex = matrix.length - 1;
-  const rotatedMatrix = [];
+/**
+ *
+ * @param {number[][]} arr - The 2D matrix
+ * @returns {number[][]} - Right rotated 2D matrix
+ */
 
-  if (!clockwise) {
-    for (let y = 0; y < numberOfColumns; y++) {
-      const childMatrix = [];
-
-      for (let x = lastRowIndex; x >= 0; x--) {
-        childMatrix.push(matrix[x][y]);
-      }
-
-      rotatedMatrix.push(childMatrix);
-    }
-
-    return rotatedMatrix;
-  }
-
-  for (let y = lastColumnIndex; y >= 0; y--) {
-    const childMatrix = [];
-
-    for (let x = 0; x <= lastRowIndex; x++) {
-      childMatrix.push(matrix[x][y]);
-    }
-
-    rotatedMatrix.push(childMatrix);
-  }
-
-  return rotatedMatrix;
+function rotateRight(arr) {
+  return arr[0].length == 1
+    ? [arr.flatMap((el) => el).reverse()]
+    : [
+        arr.map((el) => el[0]).reverse(),
+        ...rotateRight(arr.map((el) => el.slice(1))),
+      ];
 }

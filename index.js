@@ -1,6 +1,4 @@
-import sampleMatrix from './utils/sample-matrix.js';
+import range from './utils/range.js';
 
-console.log(sampleMatrix(4, 3));
-console.log(sampleMatrix(3, 4));
-console.log(sampleMatrix(1, 4));
-console.log(sampleMatrix(7, 5));
+console.log(range(10, 5, 2));
+console.log(range(65, null, 5));
